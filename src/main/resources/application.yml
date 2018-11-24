@@ -1,0 +1,33 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: test-server
+  datasource:
+    password: root
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8
+#    schema: classpath:sql/schema.sql
+#    data: classpath:sql/data.sql
+    type: com.alibaba.druid.pool.DruidDataSource
+#    initialization-mode: always
+
+mybatis:
+  type-aliases-package: com.zjp.bean
+  mapper-locations: classpath:mybatis/*.xml
+  # 控制台打印sql
+  configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+# 通用mapper配置
+mapper:
+  mappers: com.zjp.utils.MyMapper
+  identity: MYSQL
+  not-empty: false

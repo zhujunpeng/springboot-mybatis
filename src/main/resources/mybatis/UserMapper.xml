@@ -1,0 +1,13 @@
+<!DOCTYPE mapper  
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  
+<mapper namespace="com.zjp.dao.UserMapper">  
+	<!--<select id="findUserById" resultType="user">-->
+		<!--select * from t_user where id = #{0}-->
+	<!--</select>-->
+
+	<!--<select id="getAllUser" resultType="user">-->
+		<!--select * from t_user-->
+	<!--</select>-->
+</mapper>
