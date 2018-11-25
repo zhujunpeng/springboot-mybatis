@@ -54,4 +54,11 @@ public interface UserService {
      * @return
      */
     List<User> dynamicSql(String username,String name);
+
+    /**
+     * 使用weekend，防止sql的字段写错
+     * @param name
+     * @return
+     */
+    List<User> queryByWeekend(String name);
 }

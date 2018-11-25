@@ -111,4 +111,15 @@ public class UserController {
         List<User> users = userService.dynamicSql(username, name);
         return Result.success(users);
     }
+
+    /**
+     * 使用weekend查询
+     * @param username
+     * @return
+     */
+    @GetMapping("find/like4")
+    public Result findUserByWeekend(String username){
+        List<User> users = userService.queryByWeekend(username);
+        return Result.success(users);
+    }
 }

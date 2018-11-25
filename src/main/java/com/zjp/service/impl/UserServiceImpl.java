@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
+import tk.mybatis.mapper.weekend.WeekendSqls;
 
 import java.util.List;
 
@@ -139,6 +140,14 @@ public class UserServiceImpl implements UserService {
         if (!StringUtils.isEmpty(name)){
             criteria.andLike("name",name+"%");
         }
+        return userMapper.selectByExample(example);
+    }
+
+    @Override
+    public List<User> queryByWeekend(String name) {
+        Example example = new Example.Builder(User.class).where(WeekendSqls.<User>custom()
+                .andLike(User::getUsername, "%" + name + "%")
+                .andGreaterThan(User::getAge, 10)).build();
         return userMapper.selectByExample(example);
     }
 }
